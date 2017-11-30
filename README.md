@@ -13,19 +13,23 @@ The develop branch has the next minor release. (1.1-dev)
 
 Pydro project presents python code for Hydrography Terrain Analysis Using Digital Elevation Models to provide drainage network analysis functionality to support decision making in Water Resources.
 
+# LIST OF CODES
+
+1 - pydro_flowpath.py
+
 # REQUIREMENTS
 
 Python 2.4+
 
-GDAL/OGR 
+GDAL/OGR 2.1.2+
 
-## INSTALLATION (v.6.0)
+## INSTALLATION (v.1.0)
 
 Download the python files and copy the content to the workspace directory containing the dem files
 
 # USAGE
 
-pydro_flow_path.py:
+1 - pydro_flow_path.py:
 
 In the terminal: c:\workspace>python pydro_flowpath.py -d C:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
 
@@ -53,7 +57,7 @@ IMPORTANT : the changes are made in the current project, and will be saved only 
 
 ## Authors
 
-Alexandre de Amorim Teixeira, Gustavo Souto Molleri
+Gustavo Souto Molleri, Alexandre de Amorim Teixeira
 
 ## Licence
 
