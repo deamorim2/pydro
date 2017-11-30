@@ -45,10 +45,14 @@ type of flow direction: t-> taudem flow direction model a-> arcgis/terrahidro fl
 
 ## SYSTEM ENVIRONMENTAL SETUP (WINDOWS)
 
-PATH=C:\Program Files\QGIS Brighton\bin;
+PATH=C:\Program Files\QGIS Brighton\bin
+
 PYTHONPATH=C:\Program Files\QGIS x.x\apps\Python27\Lib
+
 PYTHONHOME=C:\Program Files\QGIS x.x\apps\Python27
+
 GDAL_DATA=C:\Program Files\QGIS x.x\share\gdal
+
 GDAL_DRIVER_PATH=C:\Program Files\QGIS x.x\bin\gdalplugins  
 
 ## Notes
