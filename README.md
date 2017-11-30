@@ -36,9 +36,13 @@ In the terminal: c:\workspace>python pydro_flowpath.py -d C:/workspace/ -s sourc
 Where:
 
 workspace: C:/workspace/
+
 shapefile drainage source point: source.shp
+
 input flow direction raster: flowdirection.tif
+
 output flow path raster: flowpath.tif
+
 type of flow direction: t-> taudem flow direction model a-> arcgis/terrahidro flow direction model
 
 ## SETUP
