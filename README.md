@@ -1,7 +1,7 @@
 # PYDRO - Python code for Hydrography Terrain Analysis Using Digital Elevation Models
 Python code for Hydrography Terrain Analysis Using Digital Elevation Models
 
-# STATUS
+## STATUS
 
 ## Branches
 
@@ -9,15 +9,15 @@ The master branch has the latest minor release. (1.0)
 
 The develop branch has the next minor release. (1.1-dev)
 
-# INTRODUCTION
+## INTRODUCTION
 
 Pydro project presents python code for Hydrography Terrain Analysis Using Digital Elevation Models to provide drainage network analysis functionality to support decision making in Water Resources.
 
-# LIST OF CODES
+## LIST OF CODES
 
 1 - pydro_flowpath.py
 
-# REQUIREMENTS
+## REQUIREMENTS
 
 Python 2.4+
 
@@ -27,7 +27,7 @@ GDAL/OGR 2.1.2+
 
 Download the python files and copy the content to the workspace directory containing the dem files
 
-# USAGE
+## USAGE
 
 1 - pydro_flow_path.py:
 
@@ -41,7 +41,7 @@ input flow direction raster: flowdirection.tif
 output flow path raster: flowpath.tif
 type of flow direction: t-> taudem flow direction model a-> arcgis/terrahidro flow direction model
 
-# SETUP
+## SETUP
 
 ## SYSTEM ENVIRONMENTAL SETUP (WINDOWS)
 
