@@ -16,6 +16,8 @@ Pydro project presents python code for Hydrography Terrain Analysis Using Digita
 ## LIST OF CODES
 
 1 - pydro_flowpath.py
+2 - pydro_agreedem.py (using numpy)
+3 - pydro_agreedem_gdal (using gdal, faster)
 
 ## REQUIREMENTS
 
@@ -31,19 +33,64 @@ Download the python files and copy the content to the workspace directory contai
 
 1 - pydro_flow_path.py:
 
-In the terminal: c:\workspace>python pydro_flowpath.py -d C:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
+In the terminal: C:\workspace>python pydro_flowpath.py -w C:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
 
-Where:
+optional arguments:
+  -h, --help            show this help message and exit
+  -w DIR_NAME, --directory workspace DIR_NAME
+                        Workspace Directory
+  -s SHP_NAME, --source_points SHP_NAME
+                        Source Points Shapefile Name
+  -i INFILE_NAME, --input_flow_direction INFILE_NAME
+                        Flow Direction File Name
+  -o OUTFILE_NAME, --output_flow_path_file OUTFILE_NAME
+                        Flow Path Output File Name
+  -f TYPE_FLOW_DIRECTION, --flow TYPE_FLOW_DIRECTION
+                        Type of Flow Direction: Taudem=t ArcGIS/TerraHydro=a
 
-workspace: C:/workspace/
+2 - pydro_agreedem.py:
 
-shapefile drainage source point: source.shp
+In the terminal: c:\workspace>python pydro_agreedem.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -o agreedem -bf 2 -sm 5 -sh 100
 
-input flow direction raster: flowdirection.tif
+optional arguments:
+  -h, --help            show this help message and exit
+  -w DIR_NAME, --directory workspace DIR_NAME
+                        Workspace Directory
+  -hy SHP_NAME, --hydrography SHP_NAME
+                        Hydrography Shapefile Name Directory
+  -i INFILE_NAME, --input_dem_file INFILE_NAME
+                        DEM File Name Directory
+  -o OUTFILE_NAME, --output_agreedem_file_name OUTFILE_NAME
+                        Output AgreeDEM File Name
+  -bf BUFFER_VALUE, --buffer BUFFER_VALUE
+                        Buffer distance in Pixel
+  -sm SMOOTH_VALUE, --smooth SMOOTH_VALUE
+                        Smooth modified elevation
+  -sh SHARP_VALUE, --sharp SHARP_VALUE
+                        Sharp drop/raise grid
+                        
+3 - pydro_agreedem_gdal.py:
 
-output flow path raster: flowpath.tif
+In the terminal: C:\workspace>python pydro_agreedem_gdal.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -bf 2 -sm 5 -sh 100 -gd "C:/Program Files/QGIS 2.14/bin" -od "C:/Program Files/QGIS 2.14/bin"
 
-type of flow direction: t-> taudem flow direction model a-> arcgis/terrahidro flow direction model
+optional arguments:
+  -h, --help            show this help message and exit
+  -w DIR_NAME, --directory workspace DIR_NAME
+                        Workspace Directory
+  -hy SHP_NAME, --hydrography SHP_NAME
+                        Hydrography Shapefile Name Directory
+  -i INFILE_NAME, --input_dem_file INFILE_NAME
+                        DEM File Name Directory
+  -bf BUFFER_VALUE, --buffer BUFFER_VALUE
+                        Buffer distance in Pixel
+  -sm SMOOTH_VALUE, --smooth SMOOTH_VALUE
+                        Smooth modified elevation
+  -sh SHARP_VALUE, --sharp SHARP_VALUE
+                        Sharp drop/raise grid
+  -gd GDAL_DIRECTORY, --gdal_directory GDAL_DIRECTORY
+                        Gdal Directory Name
+  -od OSGEO_DIRECTORY, --osgeo_directory OSGEO_DIRECTORY
+                        OSGEO Directory Name
 
 ## SETUP
 
