@@ -44,23 +44,23 @@ optional arguments:
   
   -w DIR_NAME, --directory workspace DIR_NAME
   
-                        Workspace Directory
+  Workspace Directory
                         
   -s SHP_NAME, --source_points SHP_NAME
   
-                        Source Points Shapefile Name
+  Source Points Shapefile Name
                         
   -i INFILE_NAME, --input_flow_direction INFILE_NAME
   
-                        Flow Direction File Name
+  Flow Direction File Name
                         
   -o OUTFILE_NAME, --output_flow_path_file OUTFILE_NAME
   
-                        Flow Path Output File Name
+  Flow Path Output File Name
                         
   -f TYPE_FLOW_DIRECTION, --flow TYPE_FLOW_DIRECTION
   
-                        Type of Flow Direction: Taudem=t ArcGIS/TerraHydro=a
+  Type of Flow Direction: Taudem=t ArcGIS/TerraHydro=a
 
 2 - pydro_agreedem.py:
 
@@ -72,31 +72,31 @@ optional arguments:
   
   -w DIR_NAME, --directory workspace DIR_NAME
   
-                        Workspace Directory
+ Workspace Directory
                         
   -hy SHP_NAME, --hydrography SHP_NAME
   
-                        Hydrography Shapefile Name Directory
+ Hydrography Shapefile Name Directory
                         
   -i INFILE_NAME, --input_dem_file INFILE_NAME
   
-                        DEM File Name Directory
+ DEM File Name Directory
                         
   -o OUTFILE_NAME, --output_agreedem_file_name OUTFILE_NAME
   
-                        Output AgreeDEM File Name
+ Output AgreeDEM File Name
                         
   -bf BUFFER_VALUE, --buffer BUFFER_VALUE
   
-                        Buffer distance in Pixel
+ Buffer distance in Pixel
                         
   -sm SMOOTH_VALUE, --smooth SMOOTH_VALUE
   
-                        Smooth modified elevation
+ Smooth modified elevation
                         
   -sh SHARP_VALUE, --sharp SHARP_VALUE
   
-                        Sharp drop/raise grid
+ Sharp drop/raise grid
                         
                         
 3 - pydro_agreedem_gdal.py:
@@ -109,35 +109,35 @@ optional arguments:
   
   -w DIR_NAME, --directory workspace DIR_NAME
   
-                        Workspace Directory
+ Workspace Directory
                         
   -hy SHP_NAME, --hydrography SHP_NAME
   
-                        Hydrography Shapefile Name Directory
+ Hydrography Shapefile Name Directory
                         
   -i INFILE_NAME, --input_dem_file INFILE_NAME
   
-                        DEM File Name Directory
+ DEM File Name Directory
                         
   -bf BUFFER_VALUE, --buffer BUFFER_VALUE
   
-                        Buffer distance in Pixel
+ Buffer distance in Pixel
                         
   -sm SMOOTH_VALUE, --smooth SMOOTH_VALUE
   
-                        Smooth modified elevation
+ Smooth modified elevation
                         
   -sh SHARP_VALUE, --sharp SHARP_VALUE
   
-                        Sharp drop/raise grid
+ Sharp drop/raise grid
                         
   -gd GDAL_DIRECTORY, --gdal_directory GDAL_DIRECTORY
   
-                        Gdal Directory Name
+ Gdal Directory Name
                         
   -od OSGEO_DIRECTORY, --osgeo_directory OSGEO_DIRECTORY
   
-                        OSGEO Directory Name
+ OSGEO Directory Name
 
 ## SETUP
 
