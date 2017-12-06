@@ -34,9 +34,9 @@ Download the python files and copy the content to the workspace directory contai
 
 ## USAGE
 
-1 - pydro_flow_path.py:
+**1 - pydro_flow_path.py:
 
-In the terminal: C:\workspace>python pydro_flowpath.py -w C:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
+>In the terminal: C:\workspace>python pydro_flowpath.py -w C:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
 
 optional arguments:
 
@@ -63,9 +63,9 @@ optional arguments:
   
   Type of Flow Direction: Taudem=t ArcGIS/TerraHydro=a
 
-2 - pydro_agreedem.py:
+**2 - pydro_agreedem.py:
 
-In the terminal: c:\workspace>python pydro_agreedem.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -o agreedem -bf 2 -sm 5 -sh 100
+>In the terminal: c:\workspace>python pydro_agreedem.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -o agreedem -bf 2 -sm 5 -sh 100
 
 optional arguments:
 
@@ -101,9 +101,9 @@ optional arguments:
  Sharp drop/raise grid
                         
                         
-3 - pydro_agreedem_gdal.py:
+**3 - pydro_agreedem_gdal.py:
 
-In the terminal: C:\workspace>python pydro_agreedem_gdal.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -bf 2 -sm 5 -sh 100 -gd "C:/Program Files/QGIS 2.14/bin" -od "C:/Program Files/QGIS 2.14/bin"
+>In the terminal: C:\workspace>python pydro_agreedem_gdal.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -bf 2 -sm 5 -sh 100 -gd "C:/Program Files/QGIS 2.14/bin" -od "C:/Program Files/QGIS 2.14/bin"
 
 optional arguments:
 
