@@ -38,115 +38,114 @@ Download the python files and copy the content to the workspace directory contai
 
 >Type in the terminal:
 
-C:\workspace>python pydro_flowpath.py -w C:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
+    c:\workspace>python pydro_flowpath.py -w C:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
 
 optional arguments:
 
   -h, --help            show this help message and exit
-  
+
+  Workspace Directory
   
   -w DIR_NAME, --directory workspace DIR_NAME
   
-  Workspace Directory
+  Source Points Shapefile Name
                         
   -s SHP_NAME, --source_points SHP_NAME
   
-  Source Points Shapefile Name
-                        
-  -i INFILE_NAME, --input_flow_direction INFILE_NAME
-  
   Flow Direction File Name
-                        
-  -o OUTFILE_NAME, --output_flow_path_file OUTFILE_NAME
+                          
+  -i INFILE_NAME, --input_flow_direction INFILE_NAME
   
   Flow Path Output File Name
                         
-  -f TYPE_FLOW_DIRECTION, --flow TYPE_FLOW_DIRECTION
+  -o OUTFILE_NAME, --output_flow_path_file OUTFILE_NAME
   
   Type of Flow Direction: Taudem=t ArcGIS/TerraHydro=a
+                        
+  -f TYPE_FLOW_DIRECTION, --flow TYPE_FLOW_DIRECTION
+  
 
 **2 - pydro_agreedem.py:**
 
 >Type in the terminal:
 
-c:\workspace>python pydro_agreedem.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -o agreedem -bf 2 -sm 5 -sh 100
+    c:\workspace>python pydro_agreedem.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -o agreedem -bf 2 -sm 5 -sh 100
 
 optional arguments:
 
   -h, --help            show this help message and exit
   
+  Workspace Directory
   
   -w DIR_NAME, --directory workspace DIR_NAME
   
- Workspace Directory
+  Hydrography Shapefile Name Directory
                         
   -hy SHP_NAME, --hydrography SHP_NAME
   
- Hydrography Shapefile Name Directory
-                        
+  DEM File Name Directory
+                         
   -i INFILE_NAME, --input_dem_file INFILE_NAME
   
- DEM File Name Directory
-                        
+  Output AgreeDEM File Name
+                         
   -o OUTFILE_NAME, --output_agreedem_file_name OUTFILE_NAME
   
- Output AgreeDEM File Name
-                        
+  Buffer distance in Pixel
+                          
   -bf BUFFER_VALUE, --buffer BUFFER_VALUE
   
- Buffer distance in Pixel
-                        
+  Smooth modified elevation
+                       
   -sm SMOOTH_VALUE, --smooth SMOOTH_VALUE
   
- Smooth modified elevation
-                        
+  Sharp drop/raise grid
+                       
   -sh SHARP_VALUE, --sharp SHARP_VALUE
-  
- Sharp drop/raise grid
                         
                         
 **3 - pydro_agreedem_gdal.py:**
 
 >Type in the terminal:
 
-C:\workspace>python pydro_agreedem_gdal.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -bf 2 -sm 5 -sh 100 -gd "C:/Program Files/QGIS 2.14/bin" -od "C:/Program Files/QGIS 2.14/bin"
+    c:\workspace>python pydro_agreedem_gdal.py -w c:/workspace/ -hy c:/workspace/tdr.shp -i c:/workspace/img02.tif -bf 2 -sm 5 -sh 100 -gd "c:/Program Files/QGIS 2.14/bin" -od "c:/Program Files/QGIS 2.14/bin"
 
 optional arguments:
 
   -h, --help            show this help message and exit
   
+  Workspace Directory
   
   -w DIR_NAME, --directory workspace DIR_NAME
   
- Workspace Directory
-                        
+  Hydrography Shapefile Name Directory
+                          
   -hy SHP_NAME, --hydrography SHP_NAME
   
- Hydrography Shapefile Name Directory
-                        
+  DEM File Name Directory
+ 
   -i INFILE_NAME, --input_dem_file INFILE_NAME
   
- DEM File Name Directory
-                        
+  Buffer distance in Pixel
+ 
   -bf BUFFER_VALUE, --buffer BUFFER_VALUE
   
- Buffer distance in Pixel
-                        
+  Smooth modified elevation
+ 
   -sm SMOOTH_VALUE, --smooth SMOOTH_VALUE
   
- Smooth modified elevation
-                        
+  Sharp drop/raise grid
+  
   -sh SHARP_VALUE, --sharp SHARP_VALUE
   
- Sharp drop/raise grid
-                        
+  Gdal Directory Name
+    
   -gd GDAL_DIRECTORY, --gdal_directory GDAL_DIRECTORY
   
- Gdal Directory Name
-                        
+  OSGEO Directory Name
+   
   -od OSGEO_DIRECTORY, --osgeo_directory OSGEO_DIRECTORY
-  
- OSGEO Directory Name
+ 
 
 ## SETUP
 
