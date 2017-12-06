@@ -38,7 +38,7 @@ Download the python files and copy the content to the workspace directory contai
 
 >Type in the terminal:
 
-    c:\workspace>python pydro_flowpath.py -w C:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
+    c:\workspace>python pydro_flowpath.py -w c:/workspace/ -s source.shp -i flowdirection.tif -o flowpath.tif -f t
 
 optional arguments:
 
@@ -69,7 +69,7 @@ optional arguments:
 
 >Type in the terminal:
 
-    c:\workspace>python pydro_agreedem.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -o agreedem -bf 2 -sm 5 -sh 100
+    c:\workspace>python pydro_agreedem.py -w c:/workspace/ -hy c:/workspace/tdr.shp -i c:/workspace/img02.tif -o agreedem -bf 2 -sm 5 -sh 100
 
 optional arguments:
 
