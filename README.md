@@ -17,10 +17,21 @@ Pydro project presents python code for Hydrography Terrain Analysis Using Digita
 
 1 - pydro_flowpath.py
 
+input: start drainage point(vector) and Flow Direction(raster)
+
+output: flow path (raster)  - raster with values equal to one showing the sintetic drainage traced from source to outlet.
+
 2 - pydro_agreedem.py (using numpy)
+
+input: vector coverage (vector) and digital elevation model (raster)
+
+output: agree dem (raster) surface reconditioning models that adjusts the surface elevation of the DEM to be consistent with a vector coverage. The vector coverage can be a stream or ridge line coverage. 
 
 3 - pydro_agreedem_gdal (using gdal, faster)
 
+input: vector coverage (vector) and digital elevation model (raster)
+
+output: agree dem (raster) surface reconditioning models that adjusts the surface elevation of the DEM to be consistent with a vector coverage. The vector coverage can be a stream or ridge line coverage. 
 
 ## REQUIREMENTS
 
