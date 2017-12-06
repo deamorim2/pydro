@@ -42,6 +42,7 @@ optional arguments:
 
   -h, --help            show this help message and exit
   
+  
   -w DIR_NAME, --directory workspace DIR_NAME
   
   Workspace Directory
@@ -69,6 +70,7 @@ In the terminal: c:\workspace>python pydro_agreedem.py -w C:/workspace/ -hy C:/w
 optional arguments:
 
   -h, --help            show this help message and exit
+  
   
   -w DIR_NAME, --directory workspace DIR_NAME
   
@@ -106,6 +108,7 @@ In the terminal: C:\workspace>python pydro_agreedem_gdal.py -w C:/workspace/ -hy
 optional arguments:
 
   -h, --help            show this help message and exit
+  
   
   -w DIR_NAME, --directory workspace DIR_NAME
   
