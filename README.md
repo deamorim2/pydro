@@ -5,9 +5,9 @@ Python code for Hydrography Terrain Analysis Using Digital Elevation Models
 
 ## Branches
 
-The master branch has the latest minor release. (1.0)
+The master branch has the latest minor release. (1.2)
 
-The develop branch has the next minor release. (1.1-dev)
+The develop branch has the next minor release. (1.3-dev)
 
 ## INTRODUCTION
 
@@ -40,6 +40,8 @@ output: agree dem* (raster) surface reconditioning models that adjusts the surfa
 Python 2.4+
 
 GDAL/OGR 2.1.2+
+
+QGIS 2.x
 
 ## INSTALLATION (v.1.0)
 
@@ -139,6 +141,10 @@ optional arguments:
  
   -i INFILE_NAME, --input_dem_file INFILE_NAME
   
+  Agreedem File Name
+  
+  -o AGREEDEM_FILE_NAME, --agreedem AGREEDEM_FILE_NAME
+                        
   Buffer distance in Pixel
  
   -bf BUFFER_VALUE, --buffer BUFFER_VALUE
@@ -164,15 +170,15 @@ optional arguments:
 
 ## SYSTEM ENVIRONMENTAL SETUP (WINDOWS)
 
-PATH=C:\Program Files\QGIS Brighton\bin
+PATH=C:\Program Files\QGIS 2.x\bin
 
-PYTHONPATH=C:\Program Files\QGIS x.x\apps\Python27\Lib
+PYTHONPATH=C:\Program Files\QGIS 2.x\apps\Python27\Lib
 
-PYTHONHOME=C:\Program Files\QGIS x.x\apps\Python27
+PYTHONHOME=C:\Program Files\QGIS 2.x\apps\Python27
 
-GDAL_DATA=C:\Program Files\QGIS x.x\share\gdal
+GDAL_DATA=C:\Program Files\QGIS 2.x\share\gdal
 
-GDAL_DRIVER_PATH=C:\Program Files\QGIS x.x\bin\gdalplugins  
+GDAL_DRIVER_PATH=C:\Program Files\QGIS 2.x\bin\gdalplugins  
 
 ## Notes
 
