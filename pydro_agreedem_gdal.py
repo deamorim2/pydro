@@ -1,4 +1,4 @@
-# Copyright (c) 2017 Gustavo S. F. Molleri (gustavo.molleri@gmail.com), Alexandre de Amorim Teixeira, (deamorim2@gmail.com)
+# Copyright (c) 2019 Gustavo S. F. Molleri (gustavo.molleri@gmail.com), Alexandre de Amorim Teixeira, (deamorim2@gmail.com)
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General pghydro License as published by
@@ -21,12 +21,12 @@
 #------------
 
 #--------------------------
-#VERSION 1.0 of 01/12/2017
+#VERSION 1.1 of 03/12/2019
 #--------------------------
 
 #--------------------------
 #USAGE
-#C:\workspace>python pydro_agreedem_gdal.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -bf 2 -sm 5 -sh 100 -gd "C:/Program Files/QGIS 2.14/bin" -od "C:/Program Files/QGIS 2.14/bin"
+#python pydro_agreedem_gdal.py -w C:/workspace/ -hy C:/workspace/tdr.shp -i C:/workspace/img02.tif -o C:/workspace/agreedem.tif -bf 2 -sm 5 -sh 100 -gd "C:/Program Files/QGIS 2.18/bin" -od "C:/Program Files/QGIS 2.18/bin"
 #--------------------------
 
 #--------------------------
@@ -51,6 +51,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-w", "--directory workspace", action="store", dest="dir_name", help="Workspace Directory")
 parser.add_argument("-hy", "--hydrography", action="store", dest="shp_name", help="Hydrography Shapefile Name Directory")
 parser.add_argument("-i", "--input_dem_file", action="store", dest="infile_name", help="DEM File Name Directory")
+parser.add_argument("-o", "--agreedem", action="store", dest="agreedem_file_name", help="Agreedem File Name")
 parser.add_argument("-bf", "--buffer", action="store", dest="buffer_value", type=int, help="Buffer distance in Pixel")
 parser.add_argument("-sm", "--smooth", action="store", dest="smooth_value", type=int, help="Smooth modified elevation")
 parser.add_argument("-sh", "--sharp", action="store", dest="sharp_value", type=int, help="Sharp drop/raise grid")
@@ -66,6 +67,7 @@ shp_hidro = args.shp_name
 buf_dist_pixels = args.buffer_value
 input_smooth = args.smooth_value
 input_sharp = args.sharp_value
+agreedem = args.agreedem_file_name
 
 gdal_dir = args.gdal_directory
 osgeo_dir = args.osgeo_directory
@@ -89,7 +91,7 @@ class ProcessaAgreeDEM():
 		self.vectallo = os.path.join(self.proc_dir, 'vectallo.tif')
 		self.vectdist = os.path.join(self.proc_dir, 'vectdist.tif')
 		self.bufgrid = os.path.join(self.proc_dir, 'bufgrid.tif')
-		self.agree = os.path.join(self.proc_dir, 'agreedem.tif')
+		self.agree = agreedem
 
 
 	# ------------------------
@@ -122,7 +124,6 @@ class ProcessaAgreeDEM():
 	def generate_TempRaster(self):
 		self.empty_raster = os.path.join(self.proc_dir, 'empty_raster.tif')
 		self.calcula_1Raster(self.srtm, self.empty_raster, 'Int32', "A*0")
-
 
 	# ------------------------
 	def delete_Raster(self, temp):
@@ -275,7 +276,7 @@ class ProcessaAgreeDEM():
 		self.calcula_2Raster(agree_temp1, agree_temp2, agree_temp3, 'Int32', "A+B")
 
 		print '\n\tPasso 4 (FINAL): '
-		self.calcula_2Raster(self.srtm, agree_temp3, self.agree, 'Int32', "A+B", 0)
+		self.calcula_2Raster(self.srtm, agree_temp3, self.agree, 'Int32', "A+B", -32768)
 
 		self.delete_Raster(agree_temp1)
 		self.delete_Raster(agree_temp2)
