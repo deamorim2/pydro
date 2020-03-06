@@ -170,7 +170,7 @@ optional arguments:
 
 ## SYSTEM ENVIRONMENTAL SETUP (WINDOWS)
 
-PATH=C:\Program Files\QGIS 2.x\bin
+PATH=C:\Program Files\QGIS 2.x\bin (put this first in the list)
 
 PYTHONPATH=C:\Program Files\QGIS 2.x\apps\Python27\Lib
 
