@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Gustavo S. F. Molleri (gustavo.molleri@gmail.com), Alexandre de Amorim Teixeira, (deamorim2@gmail.com)
+# Copyright (c) 2020 Gustavo S. F. Molleri (gustavo.molleri@gmail.com), Alexandre de Amorim Teixeira, (deamorim2@gmail.com)
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General pghydro License as published by
@@ -22,7 +22,7 @@
 #------------
 
 #--------------------------
-#VERSION 1.2 of 03/12/2019
+#VERSION 1.4 of 09/05/2020
 #--------------------------
 
 #--------------------------
@@ -124,7 +124,7 @@ class ProcessaAgreeDEM():
 	# ------------------------
 	def generate_TempRaster(self):
 		self.empty_raster = os.path.join(self.proc_dir, 'empty_raster.tif')
-		self.calcula_1Raster(self.srtm, self.empty_raster, 'Int32', "A*0")
+		self.calcula_1Raster(self.srtm, self.empty_raster, 'Int16', "A*0")
 
 	# ------------------------
 	def delete_Raster(self, temp):
@@ -188,7 +188,6 @@ class ProcessaAgreeDEM():
 		os.chdir(self.osgeo_dir)
 		os.system(cmd)
 
-
 	# ------------------------
 	def calc_Vectallo(self):
 		"""
@@ -203,7 +202,7 @@ class ProcessaAgreeDEM():
 		print '\tArquivo Saida: ',  self.vectallo
 
 		equation = """A*B"""
-		self.calcula_2Raster(self.srtm, self.vectgrid, self.vectallo, 'Int32', equation)
+		self.calcula_2Raster(self.srtm, self.vectgrid, self.vectallo, 'Int16', equation)
 
 
 	# ------------------------
@@ -220,7 +219,7 @@ class ProcessaAgreeDEM():
 		shutil.copyfile(self.empty_raster, vectdist_temp)
 
 		os.chdir(self.gdal_dir)
-		cmd = """python gdal_proximity.py %s %s -ot Int32 -values 1 -distunits PIXEL -maxdist %s -nodata 0"""%(self.vectgrid, vectdist_temp, self.dist_pixels + 1)
+		cmd = """python gdal_proximity.py %s %s -ot Int16 -values 1 -distunits PIXEL -maxdist %s -nodata 0"""%(self.vectgrid, vectdist_temp, self.dist_pixels + 1)
 		print '\n------------------------------------------------------------'
 		print '->Calculando Vectdist:'
 		print '\tArquivo Entrada: ', self.vectgrid
@@ -229,8 +228,9 @@ class ProcessaAgreeDEM():
 		os.system(cmd)
 
 		equation = """(-%s+A)*%s"""%(self.dist_pixels + 1, self.smooth_drop)
-		self.calcula_1Raster(vectdist_temp, self.vectdist, 'Int32', equation)
+		self.calcula_1Raster(vectdist_temp, self.vectdist, 'Int16', equation)
 		self.delete_Raster(vectdist_temp)
+		self.delete_Raster(self.empty_raster)
 
 
 	# ------------------------
@@ -242,7 +242,7 @@ class ProcessaAgreeDEM():
 			http://www.gdal.org/gdal_proximity.html
 		"""
 		os.chdir(self.gdal_dir)
-		cmd = """python gdal_proximity.py %s %s -ot Int32 -values 1 -distunits PIXEL -maxdist %s -fixed-buf-val 1 -nodata 0"""%(self.vectgrid, self.bufgrid, self.dist_pixels)
+		cmd = """python gdal_proximity.py %s %s -ot Int16 -values 1 -distunits PIXEL -maxdist %s -fixed-buf-val 1 -nodata 0"""%(self.vectgrid, self.bufgrid, self.dist_pixels)
 		print '\n------------------------------------------------------------'
 		print '->Calculando Bufgrid:'
 		print '\tArquivo Entrada: ', self.vectgrid
@@ -265,23 +265,27 @@ class ProcessaAgreeDEM():
 
 		print '\n\tPasso 1: '
 		agree_temp1 = os.path.join(self.proc_dir, 'agree_temp1.tif')
-		self.calcula_2Raster(self.vectdist, self.bufgrid, agree_temp1, 'Int32', "A*B")
+		self.calcula_2Raster(self.vectdist, self.bufgrid, agree_temp1, 'Int16', "A*B")
+		self.delete_Raster(self.vectdist)
+		self.delete_Raster(self.bufgrid)
 
 		print '\n\tPasso 2: '
 		agree_temp2 = os.path.join(self.proc_dir, 'agree_temp2.tif')
 		equation = """A*(-%s)"""% (self.sharp_drop)
-		self.calcula_1Raster(self.vectgrid, agree_temp2, 'Int32', equation)
+		self.calcula_1Raster(self.vectgrid, agree_temp2, 'Int16', equation)
+		self.delete_Raster(self.vectgrid)
 
 		print '\n\tPasso 3: '
 		agree_temp3 = os.path.join(self.proc_dir, 'agree_temp3.tif')
-		self.calcula_2Raster(agree_temp1, agree_temp2, agree_temp3, 'Int32', "A+B")
+		self.calcula_2Raster(agree_temp1, agree_temp2, agree_temp3, 'Int16', "A+B")
+		self.delete_Raster(agree_temp2)
+		self.delete_Raster(agree_temp1)
 
 		print '\n\tPasso 4 (FINAL): '
-		self.calcula_2Raster(self.srtm, agree_temp3, self.agree, 'Int32', "A+B", -32768)
+		self.calcula_2Raster(self.srtm, agree_temp3, self.agree, 'Int16', "A+B", -32768)
 
-		self.delete_Raster(agree_temp1)
-		self.delete_Raster(agree_temp2)
 		self.delete_Raster(agree_temp3)
+		self.delete_Raster(self.vectallo)
 
 # Executa processo
 p = ProcessaAgreeDEM(gdal_dir, osgeo_dir, default_dir, srtm_filename, shp_hidro, buf_dist_pixels, input_smooth, input_sharp)
