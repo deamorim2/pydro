@@ -5,9 +5,9 @@ Python code for Hydrography Terrain Analysis Using Digital Elevation Models
 
 ## Branches
 
-The master branch has the latest minor release. (1.2)
+The master branch has the latest minor release. (1.4)
 
-The develop branch has the next minor release. (1.3-dev)
+The develop branch has the next minor release. (1.5-dev)
 
 ## INTRODUCTION
 
@@ -43,7 +43,7 @@ GDAL/OGR 2.1.2+
 
 QGIS 2.x
 
-## INSTALLATION (v.1.2)
+## INSTALLATION (v.1.4)
 
 Download the python files and copy the content to the workspace directory containing the dem files
 
