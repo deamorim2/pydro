@@ -43,7 +43,7 @@ GDAL/OGR 2.1.2+
 
 QGIS 2.x
 
-## INSTALLATION (v.1.0)
+## INSTALLATION (v.1.2)
 
 Download the python files and copy the content to the workspace directory containing the dem files
 
