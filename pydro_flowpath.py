@@ -21,7 +21,7 @@
 #------------
 
 #--------------------------
-#VERSION 1.0 of 01/12/2017
+#VERSION 1.2 of 14/05/2020
 #--------------------------
 
 #--------------------------
@@ -200,7 +200,7 @@ class Stream():
 	# Cria matriz com informacao do fluxo		
 	def matriz(self):
 		# print "\n- Criando matriz ...\n"
-		self.matriz = numpy.zeros((self.nlin,self.ncol), dtype=numpy.int)		
+		self.matriz = numpy.zeros((self.nlin,self.ncol), dtype=numpy.int8)		
 
 	
 		
